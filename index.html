@@ -1,9 +1,25 @@
-<html>
-<body>
-
-<h2>Watch this video to see new updates and secrets</h2>
-<video width="320" height="240" controls>
+<html> 
+<body> 
+<h2>Watch full video to see secrets!</h2>
+<video controls onseeking="myFunction(this.currentTime)">
   <source src="secrets.mp4" type="video/mp4">
 </video>
-</body>
+<script>
+var currentpos = 0;
+
+function myFunction(time) {
+    if(time > currentpos) {
+      video.currentTime = currentpos;
+    }
+}
+
+var video = document.getElementsByTagName('video')[0];
+
+function getpos(){
+  currentpos = video.currentTime;
+}
+onesecond = setInterval('getpos()', 1000);
+</script>
+
+</body> 
 </html>
